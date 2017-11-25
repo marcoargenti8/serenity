@@ -1,6 +1,13 @@
 var express = require('express');
 var path = require('path');
+var email = require('./controllers/mail.js');
 var app = express();
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 // Define view engine: EJS templating
 app.set('view engine', 'ejs');
@@ -25,8 +32,26 @@ app.get('/faq', function(req, res) {
 });
 
 app.get('/gallery', function(req, res) {
-    res.render('pages/gallery', {pretitle: "La Gallery", title: "delle Foto degli Sposi", subtitle:"", gallery:true});
+    res.render('pages/gallery', {pretitle: "La Galleria", title: "delle Foto degli Sposi", subtitle:"", gallery:true});
 });
+
+app.post('/submit/mail', function(req,res) {
+	req.checkBody('name', 'Invalid name').notEmpty();
+	req.checkBody('email', 'Invalid email').notEmpty();
+	req.checkBody('message', 'Invalid message').notEmpty();
+
+	req.sanitize('name').escape();
+	req.sanitize('email').escape();
+
+	email.sendEmail(req.body.name, req.body.email, req.body.message)
+		.then(msg => {
+			res.send({sent: true});
+		})
+		.catch(err => {
+			res.send({sent: false});
+		});
+});
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 

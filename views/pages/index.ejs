@@ -64,7 +64,7 @@
 								</div>
 								<div class="timeline-body blue-text">
 									<p>
-										Nella lontana città di Shanghai all'ultimo piano del grattacielo più alto, Claudia e Marco festeggiano il loro primo incontro e l'avvento del primo anno.
+										Nella lontana città di Shanghai all'ultimo piano del grattacielo più alto, Claudia e Marco festeggiano il loro primo incontro e l'avvento del nuovo anno.
 									</p>
 								</div>
 							</div>
@@ -134,7 +134,7 @@
 								</div>
 								<div class="timeline-body blue-text">
 									<p>
-										In una tranquilla serata autunalle, in casa calò il buio. Improvvisamente una luce brillante rischiarò la stanza, Claudia vide Marco inginocchiato. 
+										In una tranquilla serata autunale, in casa calò il buio. Improvvisamente una luce brillante rischiarò la stanza, Claudia vide Marco inginocchiato. 
 										<br><br>
 										Alla fatidica proposta, Claudia accetò con goia.
 									</p>
@@ -145,7 +145,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 
 		<div id="fh5co-started" data-stellar-background-ratio="0.5" alt="Not found">
 		<div class="overlay"></div>
@@ -156,20 +156,34 @@
 						<p class="light-blue-text">Riempi il form ed invia il tuo messaggio agli sposi. Grazie.
 					</div>
 				</div>
+
+				<div id="modalEmailError" class="row animate-box" hidden>
+					<div class="alert alert-danger" style="text-align: center">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Errore!</strong> L'email non è stata inviata! Ti preghiamo di riprovare più tardi o di contattare direttamente Claudia e Marco. Grazie.
+					</div>
+				</div>
+				<div id="modalEmailSuccess" class="row animate-box" hidden>
+					<div class="alert alert-success fade in" style="text-align: center">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Email inviata con successo!</strong> Grazie.
+					</div>
+				</div>
+
 				<div class="row animate-box">
 					<div class="col-md-10 col-md-offset-1">
-						<form class="form-inline">
+						<form class="form-inline" id="formEmail" action="/submit/mail" method="POST">
 							<div class="row">
 								<div class="col-md-6 col-sm-6 col-centered">
 									<div class="form-group">
 										<label for="name" class="sr-only">Nome</label>
-										<input type="name" class="form-control" id="name" placeholder="Name">
+										<input type="name" class="form-control" id="form_name" name="name" placeholder="Name">
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-6 col-centered">
 									<div class="form-group">
 										<label for="email" class="sr-only">Email</label>
-										<input type="email" class="form-control" id="email" placeholder="Email">
+										<input type="email" class="form-control" id="form_email" name="email" placeholder="Email">
 									</div>
 								</div>
 							</div>
@@ -183,7 +197,7 @@
 
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-centered">
-									<button type="submit" class="btn btn-primary btn-block" onclick="alert('Funzione attualmente non disponibile')">Invia</button>
+									<button type="submit" class="btn btn-primary btn-block" >Invia</button>
 								</div>
 							</div>
 						</form>
