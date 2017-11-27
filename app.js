@@ -60,14 +60,3 @@ var server = app.listen(app.get('port'), function() {
   var port = server.address().port;
   console.log('Magic happens on port ' + port);
 });
-
-// set up http server to redirect to https
-var http = express.createServer();
-
-// set up a route to redirect all http connections to https
-http.get('*', function(req, res) {  
-    res.redirect('https://' + req.headers.host + req.url);
-})
-
-// have it listen on 8080
-http.listen(8080);
