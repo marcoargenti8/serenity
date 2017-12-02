@@ -35,15 +35,18 @@ app.get('/', function(req, res) {
 });
 
 app.get('/wedding', function(req, res) {
-    res.render('pages/wedding', {pretitle: "", title: "Il Matrimonio", subtitle:"", wedding:true});
+	if(!redirect(req, res))
+    	res.render('pages/wedding', {pretitle: "", title: "Il Matrimonio", subtitle:"", wedding:true});
 });
 
 app.get('/other', function(req, res) {
-    res.render('pages/other', {pretitle: "", title: "Altro", subtitle:"", other:true});
+	if(!redirect(req, res))
+    	res.render('pages/other', {pretitle: "", title: "Altro", subtitle:"", other:true});
 });
 
 app.get('/faq', function(req, res) {
-    res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true});
+	if(!redirect(req, res))
+    	res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true});
 });
 
 app.get('/gallery', function(req, res) {
