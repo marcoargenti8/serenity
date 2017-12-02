@@ -17,17 +17,17 @@ app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3000);
 
 //redirect all HTTP inbound traffic to HTTPS
-app.get('*',function(req,res,next){
-	if(req.hostname === 'localhost') {
-		next();
-	} else if(req.headers['x-forwarded-proto']!='https' || req.secure == false || req.protocol !== "https"){
-		var destination = "https://" + req.headers['host'] + req.url;
-		console.log("Redirect request to: " + destination);
-		res.redirect(destination);
-	} else {
-		next() /* Continue to other routes if we're not redirecting */
-	}
-})
+// app.get('*',function(req,res,next){
+// 	if(req.hostname === 'localhost') {
+// 		next();
+// 	} else if(req.headers['x-forwarded-proto']!='https' || req.secure == false || req.protocol !== "https"){
+// 		var destination = "https://" + req.headers['host'] + req.url;
+// 		console.log("Redirect request to: " + destination);
+// 		res.redirect(destination);
+// 	} else {
+// 		next() /* Continue to other routes if we're not redirecting */
+// 	}
+// })
 
 app.get('/', function(req, res) {
     res.render('pages/index', {pretitle: "Il Matrimonio di", title: "Claudia & Marco", subtitle:"1 Settembre 2018", home:true});
