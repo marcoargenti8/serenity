@@ -16,11 +16,11 @@ app.set('view engine', 'ejs');
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
 
-//redirect all HTTP inbound traffic to HTTPS
-var checkRedirect = function(req,res){
-	if(req.hostname === 'localhost') {
+//redirect HTTP inbound traffic to HTTPS
+var redirect = function(req,res){
+	if(req.hostname === 'localhost' || req.protocol == 'undefined') {
 		return false;
-	} else if(req.headers['x-forwarded-proto']!='https' || req.secure == false || req.protocol !== "https"){
+	} else if(req.protocol !== "https"){
 		var destination = "https://" + req.headers['host'] + req.url;
 		console.log("Redirect request to: " + destination);
 		res.redirect(destination);
@@ -30,7 +30,7 @@ var checkRedirect = function(req,res){
 };
 
 app.get('/', function(req, res) {
-	if(!checkRedirect(req, res))
+	if(!redirect(req, res))
     	res.render('pages/index', {pretitle: "Il Matrimonio di", title: "Claudia & Marco", subtitle:"1 Settembre 2018", home:true});
 });
 
