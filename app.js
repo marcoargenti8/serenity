@@ -18,9 +18,9 @@ app.set('port', process.env.PORT || 3000);
 
 //redirect HTTP inbound traffic to HTTPS
 var redirect = function(req,res){
-	if(req.hostname === 'localhost' || req.protocol == 'undefined') {
+	if(req.hostname === 'localhost') {
 		return false;
-	} else if(req.protocol !== "https"){
+	} else if(req.protocol == "http"){
 		var destination = "https://" + req.headers['host'] + req.url;
 		console.log("Redirect request to: " + destination);
 		res.redirect(destination);
