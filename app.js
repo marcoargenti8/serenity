@@ -54,8 +54,8 @@ app.get('/gallery', function(req, res) {
 });
 
 app.get('/download/map', function(req, res) {
-  var file = __dirname + '/pdf/map.pdf';
-  res.download(file);
+	var file = 'pdf/map.pdf';
+	res.download(file);
 });
 
 app.post('/submit/mail', function(req,res) {
