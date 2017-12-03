@@ -46,7 +46,7 @@ app.get('/other', function(req, res) {
 
 app.get('/faq', function(req, res) {
 	if(!redirect(req, res))
-    	res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true});
+    	res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true, iban: process.env.IBAN});
 });
 
 app.get('/gallery', function(req, res) {
