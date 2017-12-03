@@ -53,6 +53,11 @@ app.get('/gallery', function(req, res) {
     res.render('pages/gallery', {pretitle: "La Galleria", title: "delle Foto degli Sposi", subtitle:"", gallery:true});
 });
 
+app.get('/download/map', function(req, res) {
+  var file = __dirname + '/pdf/map.pdf';
+  res.download(file);
+});
+
 app.post('/submit/mail', function(req,res) {
 	req.checkBody('name', 'Invalid name').notEmpty();
 	req.checkBody('email', 'Invalid email').notEmpty();
