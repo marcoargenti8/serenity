@@ -49,8 +49,32 @@ app.get('/faq', function(req, res) {
     	res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true, iban: process.env.IBAN});
 });
 
+
+var imagesName = ['v1514040021/gallery/cina.jpg',
+	'v1514033583/gallery/acqui_terme.jpg',
+	'v1514029058/gallery/bowling.jpg',
+	'v1514033462/gallery/canada_auto.jpg',
+	'v1514033548/gallery/canada_cascata.jpg',
+	'v1514033595/gallery/castello_romania.jpg',
+	'v1514029206/gallery/cena_gala.jpg',
+	'v1514033578/gallery/cena_maldive2.jpg',
+	'v1514033538/gallery/con_le_mamme.jpg',
+	'v1514033650/gallery/corea_sud.jpg',
+	'v1514033542/gallery/laurea_claudia.jpg',
+	'v1514033579/gallery/mosca.jpg',
+	'v1514040186/gallery/cina2.jpg',
+	'v1514033565/gallery/niagara.jpg',
+	'v1514033589/gallery/russia.jpg',
+	'v1514033671/gallery/seul.jpg',
+	'v1514033672/gallery/sirmione.jpg',
+	'v1514033673/gallery/skyline_canada.jpg',
+	'v1514033617/gallery/terme_eugane.jpg',
+	'v1514029182/gallery/torino.jpg',
+	'v1514033619/gallery/venezia.jpg'];
+
 app.get('/gallery', function(req, res) {
-    res.render('pages/gallery', {pretitle: "La Galleria", title: "delle Foto degli Sposi", subtitle:"", gallery:true});
+    res.render('pages/gallery', {pretitle: "La Galleria", title: "delle Foto degli Sposi", 
+    	subtitle: "", imagePath: ""+process.env.CLOUDINARY_URL_IMG, images: imagesName, gallery: true});
 });
 
 app.get('/download/map', function(req, res) {
