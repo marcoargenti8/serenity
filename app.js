@@ -18,8 +18,10 @@ app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3000);
 
 var logUserAccess = function(req) {
+	var useragent = req.headers['user-agent'];
+
 	console.log("Accesso Utente req:" + req.path + " da ips: " + req.ips + "; ip: " + req.ip
-		+ " ; originalUrl: " + req.originalUrl
+		+ " ; useragent: " + useragent
 		);
 };
 
