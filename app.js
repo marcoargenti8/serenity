@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
+app.enable('trust proxy');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,8 +17,15 @@ app.set('view engine', 'ejs');
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
 
+var logUserAccess = function(req) {
+	console.log("Accesso Utente req:" + req.path + " da ips: " + req.ips + "; ip: " + req.ip
+		+ " ; originalUrl: " + req.originalUrl
+		);
+};
+
 //redirect HTTP inbound traffic to HTTPS
-var redirect = function(req,res){
+var redirect = function(req,res) {
+	logUserAccess(req);
 	if(req.get('X-Forwarded-Proto')=='https' || req.hostname == 'localhost') {
 		return false;
 	} else if(req.get('X-Forwarded-Proto')!='https' && req.get('X-Forwarded-Port')!='443'){
