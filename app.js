@@ -59,6 +59,11 @@ app.get('/faq', function(req, res) {
     	res.render('pages/faq', {pretitle: "Altro", title: "Domande Frequenti", subtitle:"", other:true, iban: process.env.IBAN});
 });
 
+app.get('/wedshoot', function(req, res) {
+	if(!redirect(req, res))
+    	res.render('pages/wedshoot', {pretitle: "Altro", title: "Wedshoot", subtitle:"Condividi le tue foto", other:true, album: process.env.ALBUM});
+});
+
 
 var imagesName = ['v1514040021/gallery/cina.jpg',
 	'v1514033583/gallery/acqui_terme.jpg',

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<% include ../partials/header %>
+		<div id="fh5co-couple" class="fh5co-section-gray">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-12 text-center heading-section">
+							<h2>Condividi le tue foto con Wedshoot</h2>
+						</div>
+						<div class="col-md-12 text-center">
+							<h2 class="text-justify">Puoi condividere in tempo reale con noi le tue foto. Oppure guardare le foto caricate dagli altri invitati.</h2>
+							<h2 class="text-justify">Tutte le foto saranno visibili solo agli sposi ed agli invitati, in totale rispetto della privacy.</h2>
+							<h3 class="blue-text"><a href="https://www.matrimonio.com/web/W2627168/album">Album delle foto</a></h3>
+							<h3 class="light-blue-text">Codice per accedere all'album: <% if (locals.album) { %><p><span> <%= album %>  </p></span> <%} %></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-couple" class="fh5co-section-white">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-12 text-center heading-section">
+							<h2>Come funziona</h2>
+						</div>
+						<div class="col-md-12">
+							<ol>
+								<li><p class="text-justify">Installate gratuitamente l'applicazione wedshoots sul vostro smartphone
+									<div class="wedshoots-steps-buttons">
+				                        <a class="wedshoots-steps-button apple" href="https://app.appsflyer.com/id660256196?pid=WP-iOS-IT&amp;c=WP-IT-LANDINGS&amp;s=it">
+				                            <img src="https://cdn1.matrimonio.com/assets/img/footer/appstore.png" class="img-responsive">
+				                        </a>
+				                        <a class="wedshoots-steps-button android" href="https://app.appsflyer.com/net.bodas.android.wedshoots?pid=WP-Android-IT&amp;c=WP-IT-LANDINGS">
+				                            <img src="https://cdn1.matrimonio.com/assets/img/footer/googleplay.png" class="img-responsive">
+				                        </a>
+				                    </div>
+				                    </p>
+
+								<li><p class="text-justify">Inserite il Codice album 
+									<% if (locals.album) { %><span> <%= album %></span> <%} %> o scansionate il QR Code</p> <img src="https://www.matrimonio.com/qr.php?d=<% if (locals.album) { %><%=album %><%} %>&amp;e=Q&amp;t=J&amp;size=120" width="120" height="120">
+								<li><p class="text-justify">Condividete le vostre foto e sfogliate quelle condivise dagli altri invitati</p>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<% include ../partials/footer %>
+	</body>
+</html>
+
